@@ -1,16 +1,16 @@
-import { GraphicCard } from './GraphicCard';
+import { getSuggestedQuery } from '@testing-library/react';
 import React, { useEffect, useState } from 'react';
 import { getGraphics$ } from '../services/GraphicService';
+import GraphicCard from './GraphicCard';
 
-
+interface graphicCard {
+    id: number,
+    name: string,
+    price: number,
+    model:string
+}
 export const GraphicsCardListContainer = () => {
-    interface graphicCard {
-        id: number,
-        name: string,
-        price: number,
-        model:string
-    }
-    
+    const [query, setQuery] = useState('')
     const [graphicsCardList, setGraphicsCardList] = useState(Array<graphicCard>);
 
     useEffect(() => {
@@ -21,17 +21,16 @@ export const GraphicsCardListContainer = () => {
     }, [])
 
     return(
-        <ul>
-        {
-            graphicsCardList.map((item) => 
-            <li>
-                <GraphicCard
-                    id={item.id}
-                    name={item.name}
-                    price={item.price}
-                    model={item.model} />
-            </li>)
-        }
-        </ul>
+        <div>
+            <input type='text' placeholder='Search...' onChange={(evt) => setQuery(evt.target.value)}/>
+            <ul>
+            {graphicsCardList.filter((graphic) => 
+                    graphic.name.toLowerCase().includes(query))
+                    .map((item) => 
+                    <li><GraphicCard graphicCard={item} /></li>
+                )
+            }
+            </ul>
+        </div>
     )
 }

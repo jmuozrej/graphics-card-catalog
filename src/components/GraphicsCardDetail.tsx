@@ -21,7 +21,7 @@ export function GraphicsCardDetail() {
         getGraphics$.subscribe({
             next: value => {
                 let response = value.response as Array<graphicCard>;
-                setGraphicCardDetails(response.filter((item) => item.id === Number(idGraphic))[0]);
+                setGraphicCardDetails(response.filter((item) => item.id === Number(idGraphic))[0])
             },
             error: err => console.log(err)
         });
@@ -30,7 +30,7 @@ export function GraphicsCardDetail() {
     return (
         <ul>
             <li><h1>
-                {graphicCardDetails.id}
+                {graphicCardDetails.name}
             </h1></li>
             <li>Price: {graphicCardDetails.price}</li>
             <li>Model: {graphicCardDetails.model}</li>

@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { GraphicsCardListContainer } from './components/GraphicsCardListContainer';
-import { GraphicsCardDetail } from './components/GraphicsCardDetail';
-import {
-  BrowserRouter,
-  Link,
-  Route,
-  Routes
-} from "react-router-dom";
+import ProjectRoutes from './routes/projectRoutes';
+
+
 
 function App() {
+
   return (
     <div className="App">
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<GraphicsCardListContainer />} />
-        <Route path='/details:id' element={<GraphicsCardDetail />} />
-      </Routes>
-      </BrowserRouter>
+      <ProjectRoutes/>
     </div>
   );
 }
