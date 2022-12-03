@@ -1,26 +1,25 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { GraphicsCardListContainer } from './GraphicsCardListContainer ';
-import { GraphicsCardDetail } from './GraphicsCardDetail';
+import { GraphicsCardListContainer } from './components/GraphicsCardListContainer';
+import { GraphicsCardDetail } from './components/GraphicsCardDetail';
 import {
   BrowserRouter,
   Link,
   Route,
+  Routes
 } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
     <div className="App">
-      <Route path='/'>
-        <GraphicsCardListContainer graphicCards={INITIAL_STATE}/>
-      </Route>
-      <Route path='/details/:id'>
-        <GraphicsCardDetail />
-      </Route>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<GraphicsCardListContainer />} />
+        <Route path='/details:id' element={<GraphicsCardDetail />} />
+      </Routes>
+      </BrowserRouter>
     </div>
-    </BrowserRouter>
   );
 }
 
