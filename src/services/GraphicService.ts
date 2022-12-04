@@ -1,5 +1,4 @@
 
-import { map, catchError, of } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 export const getGraphics$ = ajax({

@@ -12,7 +12,7 @@ const ProjectRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/home' element={<GraphicsCardListContainer />} />
+                <Route path='/' element={<GraphicsCardListContainer />} />
                 <Route path='/details/:idGraphic' element={<GraphicsCardDetail />} />
             </Routes>
         </BrowserRouter>
