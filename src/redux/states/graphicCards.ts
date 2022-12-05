@@ -1,5 +1,14 @@
 import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { graphicCard } from '../../components/GraphicsCardListContainer';
+
+
+export interface graphicCard {
+  id: number,
+  name: string,
+  price: number,
+  model: string,
+  ram: string,
+  img: string
+}
 
 const initialState = {
   graphicCards: [{
@@ -7,7 +16,8 @@ const initialState = {
     name: '',
     price: -1,
     model: '',
-    ram: ''
+    ram: '',
+    img: ''
   }]
 }
 

@@ -1,19 +1,11 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
-import { useDispatch, useSelector } from 'react-redux';
-import { appendGraphicList } from '../redux/states/graphicCards';
+import { useDispatch } from 'react-redux';
+import { appendGraphicList, graphicCard } from '../redux/states/graphicCards';
 import { getGraphics$ } from '../services/GraphicService';
 import GraphicCard from './GraphicCard';
 import InfiniteScroll from './InfiniteScroll';
 import '../style/GraphicsCardListContainer.css'
-
-export interface graphicCard {
-    id: number,
-    name: string,
-    price: number,
-    model: string,
-    ram: string
-}
 
 const override: CSSProperties = {
     display: "block",

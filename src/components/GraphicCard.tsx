@@ -1,15 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import '../style/GraphicCard.css'
+import { graphicCard } from '../redux/states/graphicCards';
 
 interface Props {
-    graphicCard: {
-        id: number,
-        name: string,
-        price: number,
-        model: string,
-        ram: string
-    }
+    graphicCard: graphicCard
 }
 const GraphicCard = ({graphicCard}: Props) => {
     return (

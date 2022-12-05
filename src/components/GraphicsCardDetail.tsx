@@ -4,14 +4,6 @@ import { useParams } from 'react-router-dom';
 import { RootState } from '../redux/store';
 import '../style/GraphicsCardDetail.css'
 
-interface graphicCard {
-    id: number,
-    name: string,
-    price: number,
-    model:string,
-    ram: string,
-}
-
 export function GraphicsCardDetail() {
     const { idGraphic } = useParams()
     const graphicState = useSelector((state: RootState) => state.graphics.graphicCards)
@@ -20,7 +12,8 @@ export function GraphicsCardDetail() {
         name: '',
         price: -1,
         model:'',
-        ram: ''});
+        ram: '',
+        img: ''});
 
     useEffect(() => {
         console.log(graphicState)
@@ -29,6 +22,7 @@ export function GraphicsCardDetail() {
 
     return (
         <div className='details-screen'>
+            <img className='img-details' src={graphicCardDetails.img}/>
             {<div className='details-rectangle'>
                 <h2>{graphicCardDetails.name}</h2>
                 <p>Price: {graphicCardDetails.price}</p>
