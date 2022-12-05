@@ -1,0 +1,34 @@
+.grid-container {
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: auto auto auto;
+    background-color: #080808;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+.input-list-cards {
+    float: center;
+    position: relative;
+    top: 2vh;
+    height: 7vh;
+    width: 15vw;
+    border-radius: 1%;
+    border: 1% solid rgba(0, 0, 0, 0.8);
+    font-size: 3vh;
+}
+
+.input-list-cards::placeholder {
+    font-size: 3vh;
+}
+
+.list-screen-background {
+    background-color: #000000;
+}

@@ -8,7 +8,7 @@ import ProjectRoutes from './routes/projectRoutes';
 function App() {
 
   return (
-    <div className="App">
+    <div className="app">
       <ProjectRoutes/>
     </div>
   );
