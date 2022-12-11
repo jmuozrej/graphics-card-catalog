@@ -9,11 +9,13 @@ interface Props {
 const GraphicCard = ({graphicCard}: Props) => {
     return (
         <div>
-            <h2 key={graphicCard.id}>
+            <h2 key={graphicCard.id} className='graphic-card-title'>
                 <Link to={`/details/${graphicCard.id}`}>{graphicCard.name}</Link>
             </h2>
-            <p>Price: {graphicCard.price}</p>
-            <p>Model: {graphicCard.model}</p>
+            <div className='graphic-card-features'>
+                <p className='graphic-card-price'>Price: {graphicCard.price}</p>
+                <p className='graphic-card-model'>Model: {graphicCard.model}</p>
+            </div>
         </div>
     )
 }

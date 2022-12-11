@@ -1,3 +1,18 @@
 ul {
     list-style: none;
 }
+
+.graphic-card-title {
+    position: relative;
+    bottom: 5vh;
+}
+
+.graphic-card-features {
+    position: relative;
+    bottom: 9vh;
+}
+
+.graphic-card-model {
+    position: relative;
+    bottom: 2vh;
+}

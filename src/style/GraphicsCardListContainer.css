@@ -1,17 +1,20 @@
 .grid-container {
     display: grid;
-    row-gap: 30px;
-    grid-template-columns: auto auto auto;
+    row-gap: 3vh;
+    grid-template-columns: auto auto auto auto;
     background-color: #080808;
-    padding: 10px;
+    padding-left: 7vw;
+    padding-top: 9vh;
+    padding-bottom: 15vh;
 }
 
 .grid-item {
     background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    font-size: 20px;
-    text-align: center;
+    border-radius: 1vh;
+    padding: 2vh;
+    font-size: 3.5vh;
+    height: 20vh;
+    width: 15vw;
   }
 
 .input-list-cards {
@@ -30,5 +33,7 @@
 }
 
 .list-screen-background {
-    background-color: #000000;
+    background-color: #080808;
+    height: 100%;
+    width: 100%;
 }

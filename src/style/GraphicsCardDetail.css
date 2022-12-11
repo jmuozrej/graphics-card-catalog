@@ -13,9 +13,13 @@
     position: relative;
     text-align: center;
     margin: auto;
+    height: 25vh;
+    border-radius: 1vh;
 }
 
 .img-details {
     height: 30vh;
-    width: 15vw;;
+    width: 15vw;
+    margin-top: 10vh;
+    border-radius: 1vh;
 }

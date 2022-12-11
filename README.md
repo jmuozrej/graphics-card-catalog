@@ -1,13 +1,13 @@
 Before starting the frontend it is necessary to start the server to be able to make the call to the API (graphic-cards-api)
 
-First, the necessary dependencies are installed
+The development is installed in docker
 
-### `npm install`
+To create docker image, it is necessary to execute the following command
 
-If there are any errors, the development environment is restarted
+### `docker build -t graphic-cards-catalog .`
 
-Finally, the application is deployed
+Finally, to run docker image, run the following command
 
-### `npm start`
+### `docker run -p 3001:3000 graphic-cards-catalog`
 
-This application is deployed in 3000 port
+This application is deployed in 3001 port
