@@ -10,4 +10,6 @@ Finally, to run docker image, run the following command
 
 ### `docker run -p 3001:3000 graphic-cards-catalog`
 
-This application is deployed in 3001 port
+To access to this application, search the following address in web browser
+
+### `localhost:3001`
