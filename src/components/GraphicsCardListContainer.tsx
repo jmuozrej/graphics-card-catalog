@@ -1,20 +1,13 @@
-import { CSSProperties, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ColorRing } from 'react-loader-spinner';
 import { useDispatch } from 'react-redux';
 import { appendGraphicList, graphicCard } from '../redux/states/graphicCards';
-import { getGraphics$ } from '../services/GraphicService';
+import { getGraphics$, getGraphicsSearch$ } from '../services/GraphicService';
 import GraphicCard from './GraphicCard';
 import InfiniteScroll from './InfiniteScroll';
 import '../style/GraphicsCardListContainer.css'
 
-const override: CSSProperties = {
-    display: "block",
-    margin: "0 auto",
-    borderColor: "red",
-  };
-
 export const GraphicsCardListContainer = () => {
-    const [query, setQuery] = useState('')
     const [loading, setLoading] = useState(false);
     const [graphicsCardList, setGraphicsCardList] = useState(Array<graphicCard>);
     const dispatch = useDispatch()
@@ -34,24 +27,31 @@ export const GraphicsCardListContainer = () => {
         }, 1000)
     }
 
+    function getFilteredGraphics(evt: React.ChangeEvent<HTMLInputElement>) {
+        let strToSearch = evt.target.value
+        getGraphicsSearch$(strToSearch).subscribe({
+            next: (value) => {
+                let data = value.response as Array<graphicCard>
+                setGraphicsCardList(data)
+            },
+            error: err => console.log(err)
+        });
+        setLoading(false);
+    }
+
     useEffect(() => {
         initGraphics()
     }, [])
 
     return(
         <div className='list-screen-background'>
-            <input className='input-list-cards' type='text' placeholder='Search...' onChange={(evt) => setQuery(evt.target.value)}/>
+            <input className='input-list-cards' type='text' placeholder='Search...' onChange={getFilteredGraphics}/>
             <InfiniteScroll
                 isLoading={loading}
                 onBottomHit={initGraphics}
             >
             <ul className='grid-container'>
-            {graphicsCardList.filter((graphic) => 
-                    graphic.name.toLowerCase().includes(query) || graphic.model.toLowerCase().includes(query))
-                    .map((item) => 
-                    <li className='grid-item'><GraphicCard graphicCard={item} /></li>
-                )
-            }
+            {graphicsCardList.map((item) => <li className='grid-item'><GraphicCard graphicCard={item} /></li>)}
             </ul>
             </InfiniteScroll>
             <ColorRing
