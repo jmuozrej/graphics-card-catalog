@@ -2,7 +2,7 @@
 import { ajax } from 'rxjs/ajax';
 
 export const getGraphics$ = ajax({
-    url: 'http://localhost:8080/graphics',
+    url: 'http://localhost:8080/graphics-cards',
     crossDomain: true,
     method: 'GET',
     headers: {
